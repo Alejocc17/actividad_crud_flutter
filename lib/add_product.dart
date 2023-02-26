@@ -24,7 +24,8 @@ class _AddProduct extends State<AddProduct> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Crer nuevo producto"),
+          backgroundColor: Color.fromARGB(255, 46, 124, 60),
+          title: Text("Crear nuevo producto"),
         ),
         body: ListView(
           children: [
@@ -32,23 +33,30 @@ class _AddProduct extends State<AddProduct> {
             TextBox(controllerDescription, "Description"),
             TextBox(controllerPrice, "Price"),
             ElevatedButton(
-                onPressed: () {
-                  String name = controllerName.text;
-                  String description = controllerDescription.text;
-                  String price = controllerPrice.text;
+              onPressed: () {
+                String name = controllerName.text;
+                String description = controllerDescription.text;
+                String price = controllerPrice.text;
 
-                  if (name.isNotEmpty &&
-                      description.isNotEmpty &&
-                      price.isNotEmpty) {
-                    Navigator.pop(
-                        context,
-                        new Product(
-                            name: name,
-                            description: description,
-                            price: price));
-                  }
-                },
-                child: Text("Guardar producto"))
+                if (name.isNotEmpty &&
+                    description.isNotEmpty &&
+                    price.isNotEmpty) {
+                  Navigator.pop(
+                      context,
+                      new Product(
+                          name: name, description: description, price: price));
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Color.fromARGB(255, 46, 124, 60), // Background color
+                onPrimary: Color.fromARGB(
+                    255, 255, 255, 255), // Text Color (Foreground color)
+              ),
+              child: const Text(
+                'Guardar producto',
+                style: TextStyle(fontSize: 14),
+              ),
+            )
           ],
         ));
   }

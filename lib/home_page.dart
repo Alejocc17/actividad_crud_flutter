@@ -29,49 +29,97 @@ class _Home_Page extends State<Home_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget._title),
-        ),
-        body: ListView.builder(
-          itemCount: products.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              onTap: () {
-                Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => ModifyProduct(products[index])))
-                    .then((newProduct) {
-                  if (newProduct != null) {
-                    setState(() {
-                      products.removeAt(index);
-
-                      products.insert(index, newProduct);
-
-                      messageResponse(
-                          context, newProduct.name + " ha sido modificado...!");
-                    });
-                  }
-                });
-              },
-              onLongPress: () {
-                removeProduct(context, products[index]);
-              },
-              title: Text(products[index].name),
-              subtitle: Text(products[index].description +
-                  " COP " +
-                  products[index].price),
-              leading: Card(
-                child: Text(products[index].name.substring(0, 1)),
+      //img:Image.asset('images/img.jpg'),
+      appBar: AppBar(
+        toolbarHeight: 140, // Set this height
+        flexibleSpace: Container(
+          color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              Image.asset('assets/logo.jpg'),
+              Padding(
+                padding: EdgeInsets.all(5),
               ),
-              trailing: Icon(
-                Icons.emoji_objects,
-                color: Colors.green,
+              const Text(
+                "Inventario de Productos T de A",
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Color.fromARGB(248, 1, 4, 21),
+                  //backgroundColor: Color.fromARGB(255, 255, 255, 255)
+                ),
               ),
-            );
-          },
+              Padding(
+                padding: EdgeInsets.all(5),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => AddProduct()))
+                      .then((newProduct) {
+                    if (newProduct != null) {
+                      setState(() {
+                        products.add(newProduct);
+                        messageResponse(context,
+                            newProduct.name + "ha sido creado con exito!...");
+                      });
+                    }
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(255, 46, 124, 60), // Background color
+                  onPrimary: Color.fromARGB(
+                      255, 255, 255, 255), // Text Color (Foreground color)
+                ),
+                child: const Text(
+                  'Ingresar producto',
+                  style: TextStyle(fontSize: 14),
+                ),
+              )
+              //tooltip: "Add new product",
+            ],
+          ),
         ),
-        floatingActionButton: FloatingActionButton(
+      ),
+
+      body: ListView.builder(
+        itemCount: products.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            onTap: () {
+              Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => ModifyProduct(products[index])))
+                  .then((newProduct) {
+                if (newProduct != null) {
+                  setState(() {
+                    products.removeAt(index);
+
+                    products.insert(index, newProduct);
+
+                    messageResponse(
+                        context, newProduct.name + " ha sido modificado...!");
+                  });
+                }
+              });
+            },
+            onLongPress: () {
+              removeProduct(context, products[index]);
+            },
+            title: Text(products[index].name),
+            subtitle: Text(
+                products[index].description + " COP " + products[index].price),
+            leading: Card(
+              child: Text(products[index].name.substring(0, 1)),
+            ),
+            trailing: Icon(
+              Icons.book_rounded,
+              color: const Color.fromARGB(255, 42, 114, 55),
+            ),
+          );
+        },
+      ),
+      /*floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(
                     context, MaterialPageRoute(builder: (_) => AddProduct()))
@@ -87,7 +135,8 @@ class _Home_Page extends State<Home_Page> {
           },
           tooltip: "Add new product",
           child: Icon(Icons.add),
-        ));
+        )*/
+    );
   }
 
   removeProduct(BuildContext context, Product product) {

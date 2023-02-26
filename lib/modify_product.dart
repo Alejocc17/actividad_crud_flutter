@@ -27,6 +27,7 @@ class _ModifyProduct extends State<ModifyProduct> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 46, 124, 60),
         title: Text("Editar producto"),
       ),
       body: ListView(
@@ -35,21 +36,30 @@ class _ModifyProduct extends State<ModifyProduct> {
           TextBox(controllerDescription, "Description"),
           TextBox(controllerPrice, "Price"),
           ElevatedButton(
-              onPressed: () {
-                String name = controllerName.text;
-                String description = controllerDescription.text;
-                String price = controllerPrice.text;
+            onPressed: () {
+              String name = controllerName.text;
+              String description = controllerDescription.text;
+              String price = controllerPrice.text;
 
-                if (name.isNotEmpty &&
-                    description.isNotEmpty &&
-                    price.isNotEmpty) {
-                  Navigator.pop(
-                      context,
-                      new Product(
-                          name: name, description: description, price: price));
-                }
-              },
-              child: Text("Guardar cambios")),
+              if (name.isNotEmpty &&
+                  description.isNotEmpty &&
+                  price.isNotEmpty) {
+                Navigator.pop(
+                    context,
+                    new Product(
+                        name: name, description: description, price: price));
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Color.fromARGB(255, 46, 124, 60), // Background color
+              onPrimary: Color.fromARGB(
+                  255, 255, 255, 255), // Text Color (Foreground color)
+            ),
+            child: const Text(
+              'Guardar cambios',
+              style: TextStyle(fontSize: 14),
+            ),
+          ),
         ],
       ),
     );

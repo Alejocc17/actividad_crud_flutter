@@ -13,6 +13,12 @@ class TextBox extends StatelessWidget {
         decoration: InputDecoration(
             filled: true,
             labelText: this._label,
+            labelStyle: TextStyle(
+              color: Color.fromARGB(255, 46, 124, 60),
+            ),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Color.fromARGB(255, 46, 124, 60)),
+            ),
             suffix: GestureDetector(
               child: Icon(Icons.close),
               onTap: () {
