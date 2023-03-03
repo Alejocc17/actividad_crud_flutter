@@ -43,13 +43,13 @@ class _Home_Page extends State<Home_Page> {
               const Text(
                 "Inventario de Productos T de A",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 23,
                   color: Color.fromARGB(248, 1, 4, 21),
                   //backgroundColor: Color.fromARGB(255, 255, 255, 255)
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(5),
+                padding: EdgeInsets.all(7),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -72,7 +72,7 @@ class _Home_Page extends State<Home_Page> {
                 ),
                 child: const Text(
                   'Ingresar producto',
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyle(fontSize: 15),
                 ),
               )
               //tooltip: "Add new product",
@@ -113,8 +113,8 @@ class _Home_Page extends State<Home_Page> {
               child: Text(products[index].name.substring(0, 1)),
             ),
             trailing: Icon(
-              Icons.book_rounded,
-              color: const Color.fromARGB(255, 42, 114, 55),
+              Icons.bookmark_outline_outlined,
+              color: const Color.fromARGB(255, 42, 115, 55),
             ),
           );
         },
