@@ -29,9 +29,9 @@ class _AddProduct extends State<AddProduct> {
         ),
         body: ListView(
           children: [
-            TextBox(controllerName, "Name"),
-            TextBox(controllerDescription, "Description"),
-            TextBox(controllerPrice, "Price"),
+            TextBox(controllerName, "Nombre"),
+            TextBox(controllerDescription, "Descripción"),
+            TextBox(controllerPrice, "Precio"),
             ElevatedButton(
               onPressed: () {
                 String name = controllerName.text;
@@ -48,13 +48,13 @@ class _AddProduct extends State<AddProduct> {
                 }
               },
               style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 46, 124, 60), // Background color
+                primary: Color.fromARGB(255, 46, 125, 60), // Background color
                 onPrimary: Color.fromARGB(
                     255, 255, 255, 255), // Text Color (Foreground color)
               ),
               child: const Text(
                 'Guardar producto',
-                style: TextStyle(fontSize: 14),
+                //style: TextStyle(fontSize: 14),
               ),
             )
           ],

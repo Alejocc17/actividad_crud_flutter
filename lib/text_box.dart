@@ -14,10 +14,10 @@ class TextBox extends StatelessWidget {
             filled: true,
             labelText: this._label,
             labelStyle: TextStyle(
-              color: Color.fromARGB(255, 46, 124, 60),
+              color: Color.fromARGB(255, 46, 125, 60),
             ),
             enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color.fromARGB(255, 46, 124, 60)),
+              borderSide: BorderSide(color: Color.fromARGB(255, 45, 124, 60)),
             ),
             suffix: GestureDetector(
               child: Icon(Icons.close),

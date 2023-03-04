@@ -32,9 +32,9 @@ class _ModifyProduct extends State<ModifyProduct> {
       ),
       body: ListView(
         children: [
-          TextBox(controllerName, "Name"),
-          TextBox(controllerDescription, "Description"),
-          TextBox(controllerPrice, "Price"),
+          TextBox(controllerName, "Nombre"),
+          TextBox(controllerDescription, "Descripción"),
+          TextBox(controllerPrice, "Precio"),
           ElevatedButton(
             onPressed: () {
               String name = controllerName.text;
@@ -57,7 +57,7 @@ class _ModifyProduct extends State<ModifyProduct> {
             ),
             child: const Text(
               'Guardar cambios',
-              style: TextStyle(fontSize: 14),
+              //style: TextStyle(fontSize: 14, fontFamily: ),
             ),
           ),
         ],

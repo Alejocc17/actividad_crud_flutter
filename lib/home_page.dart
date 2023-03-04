@@ -31,7 +31,7 @@ class _Home_Page extends State<Home_Page> {
     return Scaffold(
       //img:Image.asset('images/img.jpg'),
       appBar: AppBar(
-        toolbarHeight: 140, // Set this height
+        toolbarHeight: 160, // Set this height
         flexibleSpace: Container(
           color: Colors.white,
           child: Column(
@@ -75,7 +75,6 @@ class _Home_Page extends State<Home_Page> {
                   style: TextStyle(fontSize: 15),
                 ),
               )
-              //tooltip: "Add new product",
             ],
           ),
         ),
@@ -119,23 +118,6 @@ class _Home_Page extends State<Home_Page> {
           );
         },
       ),
-      /*floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => AddProduct()))
-                .then((newProduct) {
-              if (newProduct != null) {
-                setState(() {
-                  products.add(newProduct);
-                  messageResponse(context,
-                      newProduct.name + "ha sido creado con exito!...");
-                });
-              }
-            });
-          },
-          tooltip: "Add new product",
-          child: Icon(Icons.add),
-        )*/
     );
   }
 
